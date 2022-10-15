@@ -27,6 +27,7 @@
 		CEE9749528FAAA270029AE09 /* GitHubSearchMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748F28FAAA270029AE09 /* GitHubSearchMainInteractor.swift */; };
 		CEE9749928FAAE430029AE09 /* RecentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9749828FAAE430029AE09 /* RecentHeaderView.swift */; };
 		CEE9749C28FAB2BF0029AE09 /* KeywordTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9749B28FAB2BF0029AE09 /* KeywordTableCell.swift */; };
+		CEE9749F28FABA6F0029AE09 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9749E28FABA6F0029AE09 /* Array+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		CEE9748F28FAAA270029AE09 /* GitHubSearchMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainInteractor.swift; sourceTree = "<group>"; };
 		CEE9749828FAAE430029AE09 /* RecentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentHeaderView.swift; sourceTree = "<group>"; };
 		CEE9749B28FAB2BF0029AE09 /* KeywordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordTableCell.swift; sourceTree = "<group>"; };
+		CEE9749E28FABA6F0029AE09 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		CE2FCC1628F846EE00BD9AD1 /* GithubSearch */ = {
 			isa = PBXGroup;
 			children = (
+				CEE9749D28FABA550029AE09 /* Extension */,
 				CE2FCC5028F857A400BD9AD1 /* CobleModels */,
 				CE2FCC4B28F84B8700BD9AD1 /* ImageLoader */,
 				CE2FCC4728F8473800BD9AD1 /* Network */,
@@ -198,6 +201,14 @@
 				CEE9749B28FAB2BF0029AE09 /* KeywordTableCell.swift */,
 			);
 			path = "Header&Cell";
+			sourceTree = "<group>";
+		};
+		CEE9749D28FABA550029AE09 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CEE9749E28FABA6F0029AE09 /* Array+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +348,7 @@
 				CEE9749228FAAA270029AE09 /* GitHubSearchMainRouter.swift in Sources */,
 				CEE9748728FAA1290029AE09 /* GitHubRepositoriesViewController.swift in Sources */,
 				CE2FCC4928F848BE00BD9AD1 /* Network.swift in Sources */,
+				CEE9749F28FABA6F0029AE09 /* Array+Extension.swift in Sources */,
 				CEE9749928FAAE430029AE09 /* RecentHeaderView.swift in Sources */,
 				CE2FCC5228F857C200BD9AD1 /* GithubRepositories.swift in Sources */,
 				CE2FCC1A28F846EE00BD9AD1 /* SceneDelegate.swift in Sources */,

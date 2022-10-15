@@ -9,6 +9,16 @@
 import UIKit
 
 class GitHubSearchMainWorker {
-    func doSomeWork() {
+    let defaultKeyWords: [String] = [
+        "swift","mvvm","swiftgent","swiftlint","reactorkit","then","snapkit","almofire",
+    ]
+    
+    func getRecentKeyword(filter: String?) -> [String] {
+        guard let filter = filter else {
+            return defaultKeyWords
+        }
+        
+        //TODO: DB get
+        return []
     }
 }

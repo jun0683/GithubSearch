@@ -9,20 +9,24 @@
 import UIKit
 
 protocol GitHubSearchMainDataSource {
-    
+    var keywords: [String] { get }
 }
 
 protocol GitHubSearchMainPresentationLogic {
-    func presentSomething(response: GitHubSearchMain.Something.Response)
+    func presentRecentKeyWord(response: GitHubSearchMain.ShowRecentKeyWord.Response)
 }
 
 class GitHubSearchMainPresenter: GitHubSearchMainPresentationLogic, GitHubSearchMainDataSource {
     weak var viewController: GitHubSearchMainDisplayLogic?
     
+    // MARK: DataSource
+    var keywords: [String] = []
+    
     // MARK: Do something
     
-    func presentSomething(response: GitHubSearchMain.Something.Response) {
-        let viewModel = GitHubSearchMain.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentRecentKeyWord(response: GitHubSearchMain.ShowRecentKeyWord.Response) {
+        keywords = response.keywords
+        
+        viewController?.displayRecentKeyWord(viewModel: .init(keywords: response.keywords))
     }
 }

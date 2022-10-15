@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GitHubSearchMainBusinessLogic {
-    func doSomething(request: GitHubSearchMain.Something.Request)
+    func showRecentKeyWord(request: GitHubSearchMain.ShowRecentKeyWord.Request)
 }
 
 protocol GitHubSearchMainDataStore {
@@ -18,16 +18,14 @@ protocol GitHubSearchMainDataStore {
 
 class GitHubSearchMainInteractor: GitHubSearchMainBusinessLogic, GitHubSearchMainDataStore {
     var presenter: GitHubSearchMainPresentationLogic?
-    var worker: GitHubSearchMainWorker?
-    //var name: String = ""
+    var worker: GitHubSearchMainWorker? = GitHubSearchMainWorker()
     
     // MARK: Do something
     
-    func doSomething(request: GitHubSearchMain.Something.Request) {
-        worker = GitHubSearchMainWorker()
-        worker?.doSomeWork()
-        
-        let response = GitHubSearchMain.Something.Response()
-        presenter?.presentSomething(response: response)
+    func showRecentKeyWord(request: GitHubSearchMain.ShowRecentKeyWord.Request) {
+        guard let keywords = worker?.getRecentKeyword(filter: nil) else {
+            return
+        }
+        presenter?.presentRecentKeyWord(response: .init(keywords: keywords))
     }
 }

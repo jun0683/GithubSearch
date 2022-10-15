@@ -14,7 +14,7 @@ class RecentHeaderView: UITableViewHeaderFooterView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 20)
-        label.text = "test"
+        label.text = "Recent searches"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

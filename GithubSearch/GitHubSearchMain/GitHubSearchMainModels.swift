@@ -11,14 +11,17 @@ import UIKit
 enum GitHubSearchMain {
     // MARK: Use cases
     
-    enum Something {
+    enum ShowRecentKeyWord {
         struct Request {
+            let show: Bool
         }
         
         struct Response {
+            let keywords: [String]
         }
         
         struct ViewModel {
+            let keywords: [String]
         }
     }
 }

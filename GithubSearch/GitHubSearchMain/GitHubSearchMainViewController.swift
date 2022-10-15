@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GitHubSearchMainDisplayLogic: AnyObject {
-    func displaySomething(viewModel: GitHubSearchMain.Something.ViewModel)
+    func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel)
 }
 
 class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDisplayLogic {
@@ -91,13 +91,9 @@ class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDis
     
     //@IBOutlet weak var nameTextField: UITextField!
     
-    func doSomething() {
-        let request = GitHubSearchMain.Something.Request()
-        interactor?.doSomething(request: request)
-    }
     
-    func displaySomething(viewModel: GitHubSearchMain.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel) {
+        tableView.reloadData()
     }
 }
 
@@ -106,6 +102,7 @@ extension GitHubSearchMainViewController {
         let recentHeaerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RecentHeaderView") as? RecentHeaderView
         
         recentHeaerView?.didTapClear = { [weak self] in
+            self?.router?.routeToGitHubRepositories(keyword: "")
         }
         
         return recentHeaerView
@@ -120,14 +117,19 @@ extension GitHubSearchMainViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        searchController.isActive ? 10 : 0
+        searchController.isActive ? dataSource?.keywords.count ?? 0 : 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "KeywordTableCell", for: indexPath) as! KeywordTableCell
-        cell.confige(keyword: "test")
-        cell.didTapClear = { [weak self] in
+        
+        if let keyword = dataSource?.keywords[safe: indexPath.row] {
+            cell.confige(keyword: keyword)
+            cell.didTapClear = { [weak self] in
+//                self?.router?.routeToGitHubRepositories(keyword: "")
+            }
         }
+        
         return cell
     }
     
@@ -139,7 +141,9 @@ extension GitHubSearchMainViewController {
 extension GitHubSearchMainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         print(#function, #line, searchController.searchBar.text ?? "")
-        tableView.reloadData()
+        
+        interactor?.showRecentKeyWord(request: .init(show: searchController.isActive))
+//        tableView.reloadData()
     }
 }
 
