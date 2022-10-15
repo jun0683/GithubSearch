@@ -50,4 +50,18 @@ enum GitHubSearchMain {
             let filter: String
         }
     }
+    
+    enum SearchRepositories {
+        struct Request {
+            let keyword: String
+        }
+        
+        struct Response {
+            let keyword: String
+        }
+        
+        struct ViewModel {
+            let keyword: String
+        }
+    }
 }

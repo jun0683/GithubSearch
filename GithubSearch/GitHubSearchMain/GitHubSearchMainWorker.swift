@@ -31,4 +31,12 @@ class GitHubSearchMainWorker {
     func removeKeywordAll() {
         defaultKeyWords.removeAll()
     }
+    
+    func insertKeyword(_ keyword: String) {
+        guard defaultKeyWords.contains(where: { $0.localizedCaseInsensitiveContains(keyword)}) == false else {
+            return
+        }
+        
+        defaultKeyWords.insert(keyword, at: 0)
+    }
 }

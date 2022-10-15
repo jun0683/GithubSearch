@@ -13,6 +13,7 @@ protocol GitHubSearchMainBusinessLogic {
     func removeKeyWord(request: GitHubSearchMain.RemoveKeyWord.Request)
     func removeAllKeyWord(request: GitHubSearchMain.RemoveKeyWordAll.Request)
     func filterKeyword(request: GitHubSearchMain.FilterKeyword.Request)
+    func searchRepositories(request: GitHubSearchMain.SearchRepositories.Request)
 }
 
 protocol GitHubSearchMainDataStore {
@@ -52,5 +53,13 @@ class GitHubSearchMainInteractor: GitHubSearchMainBusinessLogic, GitHubSearchMai
         guard let keywords = worker?.getRecentKeyword(filter: filter) else { return }
         
         presenter?.presentRecentKeyWord(response: .init(keywords: keywords))
+    }
+    
+    func searchRepositories(request: GitHubSearchMain.SearchRepositories.Request) {
+        worker?.insertKeyword(request.keyword)
+        
+        filterKeyword(request: .init(filter: request.keyword))
+        
+        presenter?.presentSearchRepositories(response: .init(keyword: request.keyword))
     }
 }

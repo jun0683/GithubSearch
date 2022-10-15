@@ -14,6 +14,7 @@ protocol GitHubSearchMainDataSource {
 
 protocol GitHubSearchMainPresentationLogic {
     func presentRecentKeyWord(response: GitHubSearchMain.ShowRecentKeyWord.Response)
+    func presentSearchRepositories(response: GitHubSearchMain.SearchRepositories.Response)
 }
 
 class GitHubSearchMainPresenter: GitHubSearchMainPresentationLogic, GitHubSearchMainDataSource {
@@ -28,5 +29,9 @@ class GitHubSearchMainPresenter: GitHubSearchMainPresentationLogic, GitHubSearch
         keywords = response.keywords
         
         viewController?.displayRecentKeyWord(viewModel: .init(keywords: response.keywords))
+    }
+    
+    func presentSearchRepositories(response: GitHubSearchMain.SearchRepositories.Response) {
+        viewController?.displaySearchRepositories(viewModel: .init(keyword: response.keyword))
     }
 }

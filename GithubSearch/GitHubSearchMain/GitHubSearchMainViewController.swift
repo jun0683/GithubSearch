@@ -10,6 +10,7 @@ import UIKit
 
 protocol GitHubSearchMainDisplayLogic: AnyObject {
     func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel)
+    func displaySearchRepositories(viewModel: GitHubSearchMain.SearchRepositories.ViewModel)
 }
 
 class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDisplayLogic {
@@ -71,7 +72,6 @@ class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDis
         
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Search Repositories"
         searchController.searchBar.delegate = self
         searchController.delegate = self
@@ -94,6 +94,10 @@ class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDis
     
     func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel) {
         tableView.reloadData()
+    }
+    
+    func displaySearchRepositories(viewModel: GitHubSearchMain.SearchRepositories.ViewModel) {
+        router?.routeToGitHubRepositories(keyword: viewModel.keyword)
     }
 }
 
@@ -132,12 +136,10 @@ extension GitHubSearchMainViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        router?.routeToGitHubRepositories(keyword: "test")
+        if let keyword = dataSource?.keywords[safe: indexPath.row] {
+            interactor?.searchRepositories(request: .init(keyword: keyword))
+        }
     }
-}
-
-extension GitHubSearchMainViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) { }
 }
 
 extension GitHubSearchMainViewController: UISearchControllerDelegate {
@@ -156,7 +158,9 @@ extension GitHubSearchMainViewController: UISearchControllerDelegate {
 
 extension GitHubSearchMainViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(#function, #line, searchController.isActive, searchBar.text ?? "")
+        if let keyword = searchBar.text {
+            interactor?.searchRepositories(request: .init(keyword: keyword))
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
