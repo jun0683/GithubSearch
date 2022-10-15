@@ -19,7 +19,7 @@ class GitHubSearchMainWorker {
         }
         
         //TODO: DB get
-        return []
+        return defaultKeyWords.filter({ $0.localizedCaseInsensitiveContains(filter) })
     }
     
     func removeKeyword(_ keyword: String) {

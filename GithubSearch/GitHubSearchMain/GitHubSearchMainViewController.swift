@@ -109,15 +109,13 @@ extension GitHubSearchMainViewController {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if searchController.isActive {
-            return 50
-        }
-
-        return 0
+        let count = dataSource?.keywords.count ?? 0
+        
+        return count > 0 ? 50 : 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        searchController.isActive ? dataSource?.keywords.count ?? 0 : 0
+        dataSource?.keywords.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -141,13 +139,17 @@ extension GitHubSearchMainViewController {
 extension GitHubSearchMainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         print(#function, #line, searchController.searchBar.text ?? "")
-        
+
         interactor?.showRecentKeyWord(request: .init(show: searchController.isActive))
     }
 }
 
 extension GitHubSearchMainViewController: UISearchControllerDelegate {
+
     
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        interactor?.filterKeyword(request: .init(filter: searchText))
+    }
 }
 
 extension GitHubSearchMainViewController: UISearchBarDelegate {

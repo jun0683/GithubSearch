@@ -44,4 +44,10 @@ enum GitHubSearchMain {
             
         }
     }
+    
+    enum FilterKeyword {
+        struct Request {
+            let filter: String
+        }
+    }
 }
