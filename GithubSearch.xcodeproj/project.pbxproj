@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE2FCC1828F846EE00BD9AD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC1728F846EE00BD9AD1 /* AppDelegate.swift */; };
 		CE2FCC1A28F846EE00BD9AD1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC1928F846EE00BD9AD1 /* SceneDelegate.swift */; };
-		CE2FCC1C28F846EE00BD9AD1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC1B28F846EE00BD9AD1 /* ViewController.swift */; };
-		CE2FCC1F28F846EE00BD9AD1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2FCC1D28F846EE00BD9AD1 /* Main.storyboard */; };
 		CE2FCC2128F846F200BD9AD1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2FCC2028F846F200BD9AD1 /* Assets.xcassets */; };
 		CE2FCC2428F846F200BD9AD1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE2FCC2228F846F200BD9AD1 /* LaunchScreen.storyboard */; };
 		CE2FCC2F28F846F200BD9AD1 /* GithubSearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC2E28F846F200BD9AD1 /* GithubSearchTests.swift */; };
@@ -19,6 +17,16 @@
 		CE2FCC4928F848BE00BD9AD1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC4828F848BE00BD9AD1 /* Network.swift */; };
 		CE2FCC4D28F84CE100BD9AD1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC4C28F84CE100BD9AD1 /* ImageLoader.swift */; };
 		CE2FCC5228F857C200BD9AD1 /* GithubRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC5128F857C200BD9AD1 /* GithubRepositories.swift */; };
+		CEE9748428FA9CFF0029AE09 /* SearchKeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748328FA9CFF0029AE09 /* SearchKeywordData.swift */; };
+		CEE9748728FAA1290029AE09 /* GitHubRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748628FAA1290029AE09 /* GitHubRepositoriesViewController.swift */; };
+		CEE9749028FAAA270029AE09 /* GitHubSearchMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748A28FAAA270029AE09 /* GitHubSearchMainPresenter.swift */; };
+		CEE9749128FAAA270029AE09 /* GitHubSearchMainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748B28FAAA270029AE09 /* GitHubSearchMainWorker.swift */; };
+		CEE9749228FAAA270029AE09 /* GitHubSearchMainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748C28FAAA270029AE09 /* GitHubSearchMainRouter.swift */; };
+		CEE9749328FAAA270029AE09 /* GitHubSearchMainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748D28FAAA270029AE09 /* GitHubSearchMainModels.swift */; };
+		CEE9749428FAAA270029AE09 /* GitHubSearchMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748E28FAAA270029AE09 /* GitHubSearchMainViewController.swift */; };
+		CEE9749528FAAA270029AE09 /* GitHubSearchMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748F28FAAA270029AE09 /* GitHubSearchMainInteractor.swift */; };
+		CEE9749928FAAE430029AE09 /* RecentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9749828FAAE430029AE09 /* RecentHeaderView.swift */; };
+		CEE9749C28FAB2BF0029AE09 /* KeywordTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9749B28FAB2BF0029AE09 /* KeywordTableCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +50,6 @@
 		CE2FCC1428F846EE00BD9AD1 /* GithubSearch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubSearch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2FCC1728F846EE00BD9AD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE2FCC1928F846EE00BD9AD1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE2FCC1B28F846EE00BD9AD1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CE2FCC1E28F846EE00BD9AD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE2FCC2028F846F200BD9AD1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE2FCC2328F846F200BD9AD1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE2FCC2528F846F200BD9AD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +61,16 @@
 		CE2FCC4828F848BE00BD9AD1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE2FCC4C28F84CE100BD9AD1 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		CE2FCC5128F857C200BD9AD1 /* GithubRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositories.swift; sourceTree = "<group>"; };
+		CEE9748328FA9CFF0029AE09 /* SearchKeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordData.swift; sourceTree = "<group>"; };
+		CEE9748628FAA1290029AE09 /* GitHubRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesViewController.swift; sourceTree = "<group>"; };
+		CEE9748A28FAAA270029AE09 /* GitHubSearchMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainPresenter.swift; sourceTree = "<group>"; };
+		CEE9748B28FAAA270029AE09 /* GitHubSearchMainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainWorker.swift; sourceTree = "<group>"; };
+		CEE9748C28FAAA270029AE09 /* GitHubSearchMainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainRouter.swift; sourceTree = "<group>"; };
+		CEE9748D28FAAA270029AE09 /* GitHubSearchMainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainModels.swift; sourceTree = "<group>"; };
+		CEE9748E28FAAA270029AE09 /* GitHubSearchMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainViewController.swift; sourceTree = "<group>"; };
+		CEE9748F28FAAA270029AE09 /* GitHubSearchMainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainInteractor.swift; sourceTree = "<group>"; };
+		CEE9749828FAAE430029AE09 /* RecentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentHeaderView.swift; sourceTree = "<group>"; };
+		CEE9749B28FAB2BF0029AE09 /* KeywordTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordTableCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,8 +126,9 @@
 				CE2FCC4728F8473800BD9AD1 /* Network */,
 				CE2FCC1728F846EE00BD9AD1 /* AppDelegate.swift */,
 				CE2FCC1928F846EE00BD9AD1 /* SceneDelegate.swift */,
-				CE2FCC1B28F846EE00BD9AD1 /* ViewController.swift */,
-				CE2FCC1D28F846EE00BD9AD1 /* Main.storyboard */,
+				CEE9748328FA9CFF0029AE09 /* SearchKeywordData.swift */,
+				CEE9748928FAAA090029AE09 /* GitHubSearchMain */,
+				CEE9748628FAA1290029AE09 /* GitHubRepositoriesViewController.swift */,
 				CE2FCC2028F846F200BD9AD1 /* Assets.xcassets */,
 				CE2FCC2228F846F200BD9AD1 /* LaunchScreen.storyboard */,
 				CE2FCC2528F846F200BD9AD1 /* Info.plist */,
@@ -158,6 +175,29 @@
 				CE2FCC5128F857C200BD9AD1 /* GithubRepositories.swift */,
 			);
 			path = CobleModels;
+			sourceTree = "<group>";
+		};
+		CEE9748928FAAA090029AE09 /* GitHubSearchMain */ = {
+			isa = PBXGroup;
+			children = (
+				CEE9749728FAAE0F0029AE09 /* Header&Cell */,
+				CEE9748A28FAAA270029AE09 /* GitHubSearchMainPresenter.swift */,
+				CEE9748B28FAAA270029AE09 /* GitHubSearchMainWorker.swift */,
+				CEE9748C28FAAA270029AE09 /* GitHubSearchMainRouter.swift */,
+				CEE9748D28FAAA270029AE09 /* GitHubSearchMainModels.swift */,
+				CEE9748E28FAAA270029AE09 /* GitHubSearchMainViewController.swift */,
+				CEE9748F28FAAA270029AE09 /* GitHubSearchMainInteractor.swift */,
+			);
+			path = GitHubSearchMain;
+			sourceTree = "<group>";
+		};
+		CEE9749728FAAE0F0029AE09 /* Header&Cell */ = {
+			isa = PBXGroup;
+			children = (
+				CEE9749828FAAE430029AE09 /* RecentHeaderView.swift */,
+				CEE9749B28FAB2BF0029AE09 /* KeywordTableCell.swift */,
+			);
+			path = "Header&Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,7 +306,6 @@
 			files = (
 				CE2FCC2428F846F200BD9AD1 /* LaunchScreen.storyboard in Resources */,
 				CE2FCC2128F846F200BD9AD1 /* Assets.xcassets in Resources */,
-				CE2FCC1F28F846EE00BD9AD1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,12 +330,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE2FCC1C28F846EE00BD9AD1 /* ViewController.swift in Sources */,
 				CE2FCC1828F846EE00BD9AD1 /* AppDelegate.swift in Sources */,
+				CEE9749528FAAA270029AE09 /* GitHubSearchMainInteractor.swift in Sources */,
 				CE2FCC4D28F84CE100BD9AD1 /* ImageLoader.swift in Sources */,
+				CEE9749128FAAA270029AE09 /* GitHubSearchMainWorker.swift in Sources */,
+				CEE9749228FAAA270029AE09 /* GitHubSearchMainRouter.swift in Sources */,
+				CEE9748728FAA1290029AE09 /* GitHubRepositoriesViewController.swift in Sources */,
 				CE2FCC4928F848BE00BD9AD1 /* Network.swift in Sources */,
+				CEE9749928FAAE430029AE09 /* RecentHeaderView.swift in Sources */,
 				CE2FCC5228F857C200BD9AD1 /* GithubRepositories.swift in Sources */,
 				CE2FCC1A28F846EE00BD9AD1 /* SceneDelegate.swift in Sources */,
+				CEE9749328FAAA270029AE09 /* GitHubSearchMainModels.swift in Sources */,
+				CEE9748428FA9CFF0029AE09 /* SearchKeywordData.swift in Sources */,
+				CEE9749028FAAA270029AE09 /* GitHubSearchMainPresenter.swift in Sources */,
+				CEE9749C28FAB2BF0029AE09 /* KeywordTableCell.swift in Sources */,
+				CEE9749428FAAA270029AE09 /* GitHubSearchMainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,14 +381,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CE2FCC1D28F846EE00BD9AD1 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CE2FCC1E28F846EE00BD9AD1 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CE2FCC2228F846F200BD9AD1 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -478,7 +518,6 @@
 				INFOPLIST_FILE = GithubSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -507,7 +546,6 @@
 				INFOPLIST_FILE = GithubSearch/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
