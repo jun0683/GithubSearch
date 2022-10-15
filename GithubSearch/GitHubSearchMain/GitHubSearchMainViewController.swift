@@ -132,6 +132,7 @@ extension GitHubSearchMainViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        router?.routeToGitHubRepositories(keyword: "test")
     }
 }
 
