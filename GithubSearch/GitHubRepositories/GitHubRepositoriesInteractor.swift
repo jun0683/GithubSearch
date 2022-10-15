@@ -9,7 +9,7 @@
 import UIKit
 
 protocol GitHubRepositoriesBusinessLogic {
-    func doSomething(request: GitHubRepositories.Something.Request)
+    func searchRepositories(request: GitHubRepositories.SearchRepositories.Request)
 }
 
 protocol GitHubRepositoriesDataStore {
@@ -18,16 +18,19 @@ protocol GitHubRepositoriesDataStore {
 
 class GitHubRepositoriesInteractor: GitHubRepositoriesBusinessLogic, GitHubRepositoriesDataStore {
     var presenter: GitHubRepositoriesPresentationLogic?
-    var worker: GitHubRepositoriesWorker?
+    var worker: GitHubRepositoriesWorker? = GitHubRepositoriesWorker()
     var keyword: String = ""
     
     // MARK: Do something
     
-    func doSomething(request: GitHubRepositories.Something.Request) {
-        worker = GitHubRepositoriesWorker()
-        worker?.doSomeWork()
-        
-        let response = GitHubRepositories.Something.Response()
-        presenter?.presentSomething(response: response)
+    func searchRepositories(request: GitHubRepositories.SearchRepositories.Request) {
+        worker?.searchRepositories(keyword: keyword, completion: { result in
+            switch result{
+            case .success(let model):
+                self.presenter?.presentSearchRepositories(response: .init(itemsRepositories: model.items))
+            case .failure(let error):
+                self.presenter?.presentError(response: .init(error: error))
+            }
+        })
     }
 }

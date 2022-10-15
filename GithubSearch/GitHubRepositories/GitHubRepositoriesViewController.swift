@@ -9,12 +9,14 @@
 import UIKit
 
 protocol GitHubRepositoriesDisplayLogic: AnyObject {
-    func displaySomething(viewModel: GitHubRepositories.Something.ViewModel)
+    func displaySearchRepositories(viewModel: GitHubRepositories.SearchRepositories.ViewModel)
+    func displayError(viewModel: GitHubRepositories.SearchRepositoriesError.ViewModel)
 }
 
 
 class GitHubRepositoriesViewController: UITableViewController, GitHubRepositoriesDisplayLogic {
     var interactor: GitHubRepositoriesBusinessLogic?
+    var dataSource: GitHubRepositoriesDataSource?
     var router: (NSObjectProtocol & GitHubRepositoriesRoutingLogic & GitHubRepositoriesDataPassing)?
     
     // MARK: Object lifecycle
@@ -41,9 +43,13 @@ class GitHubRepositoriesViewController: UITableViewController, GitHubRepositorie
         let interactor = GitHubRepositoriesInteractor()
         let presenter = GitHubRepositoriesPresenter()
         let router = GitHubRepositoriesRouter()
+        
         viewController.interactor = interactor
         viewController.router = router
+        
+        dataSource = presenter
         interactor.presenter = presenter
+        
         presenter.viewController = viewController
         router.viewController = viewController
         router.dataStore = interactor
@@ -68,7 +74,7 @@ class GitHubRepositoriesViewController: UITableViewController, GitHubRepositorie
         setupNavigation()
         setupViews()
         
-        doSomething()
+        searchRepositories()
     }
     
     private func setupNavigation() {
@@ -84,24 +90,35 @@ class GitHubRepositoriesViewController: UITableViewController, GitHubRepositorie
     
     // MARK: Do something
     
-    func doSomething() {
-        let request = GitHubRepositories.Something.Request()
-        interactor?.doSomething(request: request)
+    func searchRepositories() {
+        let request = GitHubRepositories.SearchRepositories.Request()
+        interactor?.searchRepositories(request: request)
     }
     
-    func displaySomething(viewModel: GitHubRepositories.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+    func displaySearchRepositories(viewModel: GitHubRepositories.SearchRepositories.ViewModel) {
+        tableView.reloadData()
+    }
+    
+    func displayError(viewModel: GitHubRepositories.SearchRepositoriesError.ViewModel) {
+        let errorAlert = UIAlertController(title: nil, message: viewModel.error.localizedDescription, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "ok", style: .default, handler: nil)
+        errorAlert.addAction(ok)
+        
+        present(errorAlert, animated: true, completion: nil)
     }
 }
 
 extension GitHubRepositoriesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        dataSource?.items.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RepositoriesCell", for: indexPath) as! RepositoriesCell
         
+        if let item = dataSource?.items[safe: indexPath.row] {
+            cell.confige(item: item)
+        }
         
         return cell
     }

@@ -112,8 +112,16 @@ class RepositoriesCell: UITableViewCell {
         NSLayoutConstraint.activate(viewConstraints)
     }
     
-    func confige(keyword: String) {
+    func confige(item: GitHubRepositories.ItemViewModel) {
+        if let ownerIconUrl = item.ownerIconUrl {
+            ownerIcon.setImage(imageUrl: ownerIconUrl)
+        }
         
+        ownerNameLabel.text = item.ownerName
+        itemNameLabel.text = item.itemName
+        itemDescriptionLabel.text = item.itemDescription
+        starCounterLabel.text = item.starCounter
+        languageLabel.text = item.language
     }
 }
 

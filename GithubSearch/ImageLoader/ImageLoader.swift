@@ -45,3 +45,9 @@ extension NSError {
                                              userInfo: [NSLocalizedDescriptionKey: "image data error"])
     }
 }
+
+extension UIImageView {
+    func setImage(imageUrl: String) {
+        ImageLoader.shared.setImage(imageUrl: imageUrl, imageView: self)
+    }
+}
