@@ -9,7 +9,7 @@ import UIKit
 
 class RecentHeaderView: UITableViewHeaderFooterView {
     
-    var didTapClear: (() -> Void)?
+    var didTapClearAll: (() -> Void)?
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -47,7 +47,7 @@ class RecentHeaderView: UITableViewHeaderFooterView {
     }
     
     @objc private func didTapButton() {
-        didTapClear?()
+        didTapClearAll?()
     }
 }
 

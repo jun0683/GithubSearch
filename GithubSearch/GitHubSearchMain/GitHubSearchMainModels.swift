@@ -38,4 +38,10 @@ enum GitHubSearchMain {
             let keyword: String
         }
     }
+    
+    enum RemoveKeyWordAll {
+        struct Request {
+            
+        }
+    }
 }

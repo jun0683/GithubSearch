@@ -27,4 +27,8 @@ class GitHubSearchMainWorker {
             defaultKeyWords.remove(at: keywordIndex)
         }
     }
+    
+    func removeKeywordAll() {
+        defaultKeyWords.removeAll()
+    }
 }

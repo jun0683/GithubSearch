@@ -101,8 +101,8 @@ extension GitHubSearchMainViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let recentHeaerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "RecentHeaderView") as? RecentHeaderView
         
-        recentHeaerView?.didTapClear = { [weak self] in
-            self?.router?.routeToGitHubRepositories(keyword: "")
+        recentHeaerView?.didTapClearAll = { [weak self] in
+            self?.interactor?.removeAllKeyWord(request: .init())
         }
         
         return recentHeaerView
@@ -143,7 +143,6 @@ extension GitHubSearchMainViewController: UISearchResultsUpdating {
         print(#function, #line, searchController.searchBar.text ?? "")
         
         interactor?.showRecentKeyWord(request: .init(show: searchController.isActive))
-//        tableView.reloadData()
     }
 }
 
