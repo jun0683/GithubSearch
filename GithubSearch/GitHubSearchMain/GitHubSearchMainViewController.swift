@@ -126,7 +126,7 @@ extension GitHubSearchMainViewController {
         if let keyword = dataSource?.keywords[safe: indexPath.row] {
             cell.confige(keyword: keyword)
             cell.didTapClear = { [weak self] in
-//                self?.router?.routeToGitHubRepositories(keyword: "")
+                self?.interactor?.removeKeyWord(request: .init(keyword: keyword))
             }
         }
         

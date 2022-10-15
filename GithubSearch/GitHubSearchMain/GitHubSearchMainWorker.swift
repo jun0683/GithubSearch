@@ -9,7 +9,7 @@
 import UIKit
 
 class GitHubSearchMainWorker {
-    let defaultKeyWords: [String] = [
+    var defaultKeyWords: [String] = [
         "swift","mvvm","swiftgent","swiftlint","reactorkit","then","snapkit","almofire",
     ]
     
@@ -20,5 +20,11 @@ class GitHubSearchMainWorker {
         
         //TODO: DB get
         return []
+    }
+    
+    func removeKeyword(_ keyword: String) {
+        if let keywordIndex = defaultKeyWords.firstIndex(of: keyword) {
+            defaultKeyWords.remove(at: keywordIndex)
+        }
     }
 }
