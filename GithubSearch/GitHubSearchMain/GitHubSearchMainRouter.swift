@@ -23,6 +23,7 @@ class GitHubSearchMainRouter: NSObject, GitHubSearchMainRoutingLogic, GitHubSear
     
     func routeToGitHubRepositories(keyword: String) {
         let viewcontroller = GitHubRepositoriesViewController()
+        viewcontroller.router?.dataStore?.keyword = keyword
         
         viewController?.navigationController?.pushViewController(viewcontroller, animated: true)
     }

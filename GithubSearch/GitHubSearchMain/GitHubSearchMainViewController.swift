@@ -85,13 +85,10 @@ class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDis
         
         tableView.register(RecentHeaderView.self, forHeaderFooterViewReuseIdentifier: "RecentHeaderView")
         tableView.register(KeywordTableCell.self, forCellReuseIdentifier: "KeywordTableCell")
+        tableView.rowHeight = 44;
     }
     
-    // MARK: Do something
-    
-    //@IBOutlet weak var nameTextField: UITextField!
-    
-    
+    // MARK: Display
     func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel) {
         tableView.reloadData()
     }
@@ -161,16 +158,5 @@ extension GitHubSearchMainViewController: UISearchBarDelegate {
         if let keyword = searchBar.text {
             interactor?.searchRepositories(request: .init(keyword: keyword))
         }
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print(#function, #line, searchController.isActive, searchBar.text ?? "")
-    }
-}
-
-extension GitHubSearchMainViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        print(#function, #line, searchController.isActive)
-        return true
     }
 }
