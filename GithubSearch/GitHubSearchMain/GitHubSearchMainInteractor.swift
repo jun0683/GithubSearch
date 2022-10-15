@@ -26,10 +26,12 @@ class GitHubSearchMainInteractor: GitHubSearchMainBusinessLogic, GitHubSearchMai
     // MARK: Do something
     
     func showRecentKeyWord(request: GitHubSearchMain.ShowRecentKeyWord.Request) {
-        guard let keywords = worker?.getRecentKeyword(filter: nil) else {
-            return
+        if request.show,
+           let keywords = worker?.getRecentKeyword(filter: nil) {
+            presenter?.presentRecentKeyWord(response: .init(keywords: keywords))
+        } else {
+            presenter?.presentRecentKeyWord(response: .init(keywords: []))
         }
-        presenter?.presentRecentKeyWord(response: .init(keywords: keywords))
     }
     
     func removeKeyWord(request: GitHubSearchMain.RemoveKeyWord.Request) {

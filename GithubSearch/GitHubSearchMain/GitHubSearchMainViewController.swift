@@ -137,15 +137,17 @@ extension GitHubSearchMainViewController {
 }
 
 extension GitHubSearchMainViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        print(#function, #line, searchController.searchBar.text ?? "")
-
-        interactor?.showRecentKeyWord(request: .init(show: searchController.isActive))
-    }
+    func updateSearchResults(for searchController: UISearchController) { }
 }
 
 extension GitHubSearchMainViewController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        interactor?.showRecentKeyWord(request: .init(show: true))
+    }
 
+    func willDismissSearchController(_ searchController: UISearchController) {
+        interactor?.showRecentKeyWord(request: .init(show: false))
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         interactor?.filterKeyword(request: .init(filter: searchText))
