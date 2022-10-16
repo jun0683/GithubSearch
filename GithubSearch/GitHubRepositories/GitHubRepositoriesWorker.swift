@@ -9,8 +9,13 @@
 import UIKit
 
 class GitHubRepositoriesWorker {
-    func searchRepositories(keyword: String, page: Int = 1, completion: @escaping ((Result<GithubRepositoriesModel, Error>) -> Void)) {
-        let url = "https://api.github.com/search/repositories?q=\(keyword)&page=\(page)"
+    // https://docs.github.com/en/rest/search#search-repositories
+    func searchRepositories(keyword: String,
+                            page: Int = 1,
+                            sort: String,
+                            order: String,
+                            completion: @escaping ((Result<GithubRepositoriesModel, Error>) -> Void)) {
+        let url = "https://api.github.com/search/repositories?q=\(keyword)&page=\(page)&sort=\(sort)&order=\(order)"
         
         Network.shared.requestModel(urlString: url) { (result) in
             DispatchQueue.main.async {

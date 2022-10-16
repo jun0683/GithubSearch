@@ -135,6 +135,10 @@ extension GitHubRepositoriesViewController {
 
 extension GitHubRepositoriesViewController: SearchOptionDelegate {
     func selectOption(_ option: GitHubRepositories.SearchOptions?) {
-        print(option)
+        guard let option = option else {
+            return
+        }
+
+        interactor?.searchRepositoriesOptions(request: .init(option: option))
     }
 }
