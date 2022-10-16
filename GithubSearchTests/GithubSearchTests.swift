@@ -72,7 +72,27 @@ class GithubSearchTests: XCTestCase {
         // then
         XCTAssertEqual(viewControllerMock.keywords.count, 1)
     }
+    
+    func test저장안된키워드로여러번검색후_이력다지움() throws {
+        // given
+        let interactor = GitHubSearchMainInteractor(worker: .init(db: RecentMemoryDB()))
+        let presenter = GitHubSearchMainPresenter()
+        let viewControllerMock = GitHubSearchMainViewMock()
+        interactor.presenter = presenter
+        presenter.viewController = viewControllerMock
 
+        interactor.searchRepositories(request: .init(keyword: "test"))
+        interactor.searchRepositories(request: .init(keyword: "123"))
+        interactor.searchRepositories(request: .init(keyword: "456"))
+        interactor.searchRepositories(request: .init(keyword: "화해"))
+
+        // when
+        interactor.removeAllKeyWord(request: .init())
+        
+
+        // then
+        XCTAssertEqual(viewControllerMock.keywords.count, 0)
+    }
 }
 
 class GitHubSearchMainViewMock: GitHubSearchMainDisplayLogic {
