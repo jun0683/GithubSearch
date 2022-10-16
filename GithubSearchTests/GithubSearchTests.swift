@@ -36,11 +36,23 @@ class GithubSearchTests: XCTestCase {
         XCTAssertTrue(viewControllerMock.keywords.contains("test"))
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func test저장안된키워드로검색후_해당이력지움() throws {
+        // given
+        let interactor = GitHubSearchMainInteractor(worker: .init(db: RecentMemoryDB()))
+        let presenter = GitHubSearchMainPresenter()
+        let viewControllerMock = GitHubSearchMainViewMock()
+        interactor.presenter = presenter
+        presenter.viewController = viewControllerMock
+
+        interactor.searchRepositories(request: .init(keyword: "test"))
+
+        // when
+        interactor.removeKeyWord(request: .init(keyword: "test"))
+        
+
+        // then
+        XCTAssertFalse(viewControllerMock.keywords.contains("test"))
+    }
     }
 
 }
