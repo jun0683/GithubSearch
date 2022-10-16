@@ -22,6 +22,11 @@ final class ImageLoader {
     }
     
     private func getImage(imageUrl: String, completion: @escaping ((Result<UIImage, Error>) -> Void)) {
+        if let image = ImageCache.shared.object(forKey: imageUrl as NSString) {
+            completion(.success(image))
+            return
+        }
+        
         Network.shared.requestData(urlString: imageUrl, completion: { (result) in
             switch result {
             case .success(let imageData):
@@ -29,6 +34,7 @@ final class ImageLoader {
                     return completion(.failure(NSError.ImageLoader.imageDataError))
                 }
                 DispatchQueue.main.async {
+                    ImageCache.shared.setObject(image, forKey: imageUrl as NSString)
                     completion(.success(image))
                 }
             case .failure(let error):

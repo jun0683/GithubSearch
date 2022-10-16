@@ -37,6 +37,7 @@
 		CEE974B428FBFB8A0029AE09 /* SearchOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B328FBFB8A0029AE09 /* SearchOptionViewController.swift */; };
 		CEE974B728FC29D20029AE09 /* RecentMemoryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */; };
 		CEE974B928FC2C130029AE09 /* RecentUserDefaultDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */; };
+		CEE974BB28FC301F0029AE09 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974BA28FC301F0029AE09 /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		CEE974B328FBFB8A0029AE09 /* SearchOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionViewController.swift; sourceTree = "<group>"; };
 		CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMemoryDB.swift; sourceTree = "<group>"; };
 		CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserDefaultDB.swift; sourceTree = "<group>"; };
+		CEE974BA28FC301F0029AE09 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2FCC4C28F84CE100BD9AD1 /* ImageLoader.swift */,
+				CEE974BA28FC301F0029AE09 /* ImageCache.swift */,
 			);
 			path = ImageLoader;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				CE2FCC4928F848BE00BD9AD1 /* Network.swift in Sources */,
 				CEE974A928FADAFE0029AE09 /* GitHubRepositoriesRouter.swift in Sources */,
 				CEE9749F28FABA6F0029AE09 /* Array+Extension.swift in Sources */,
+				CEE974BB28FC301F0029AE09 /* ImageCache.swift in Sources */,
 				CEE974B728FC29D20029AE09 /* RecentMemoryDB.swift in Sources */,
 				CEE974B428FBFB8A0029AE09 /* SearchOptionViewController.swift in Sources */,
 				CEE9749928FAAE430029AE09 /* RecentHeaderView.swift in Sources */,
