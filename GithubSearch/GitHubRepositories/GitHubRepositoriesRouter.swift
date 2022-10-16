@@ -45,19 +45,24 @@ class GitHubRepositoriesRouter: NSObject, GitHubRepositoriesRoutingLogic, GitHub
     func routeToSort() {
         let option = searchOptionViewController()
         
-        viewController?.present(option, animated: true)
+        option.option = .sort(type: .stars)
+        
+        viewController?.present(UINavigationController(rootViewController: option), animated: true)
     }
     
     func routeToOrder() {
         let option = searchOptionViewController()
         
-        viewController?.present(option, animated: true)
+        option.option = .order(type: .asc)
+        
+        viewController?.present(UINavigationController(rootViewController: option), animated: true)
     }
     
-    private func searchOptionViewController() -> UIViewController {
+    private func searchOptionViewController() -> SearchOptionViewController {
         let option = SearchOptionViewController()
         
+        option.delegate = viewController
         
-        return UINavigationController(rootViewController: option)
+        return option
     }
 }

@@ -81,8 +81,6 @@ class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDis
     }
     
     private func setupViews() {
-        view.backgroundColor = .white
-        
         tableView.register(RecentHeaderView.self, forHeaderFooterViewReuseIdentifier: "RecentHeaderView")
         tableView.register(KeywordTableCell.self, forCellReuseIdentifier: "KeywordTableCell")
         tableView.rowHeight = 44;

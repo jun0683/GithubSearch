@@ -26,6 +26,44 @@ enum GitHubRepositories {
         let language: String?
     }
     
+    enum SearchOptions {
+        enum Sort: String, CaseIterable {
+            case stars
+            case forks
+            case helpWantedIssues = "help-wanted-issues"
+            case updated
+        }
+        enum Order: String, CaseIterable {
+            case desc, asc
+        }
+        
+        case sort(type: Sort)
+        case order(type: Order)
+        
+        func optionList() -> [String] {
+            switch self {
+            case .sort:
+                return GitHubRepositories.SearchOptions.Sort.allCases.map { $0.rawValue }
+            case .order:
+                return GitHubRepositories.SearchOptions.Order.allCases.map { $0.rawValue }
+            }
+        }
+        
+        func optionType(_ rawValue: String) -> SearchOptions? {
+            switch self {
+            case .sort:
+                if let sortType = GitHubRepositories.SearchOptions.Sort(rawValue: rawValue) {
+                    return .sort(type: sortType)
+                }
+            case .order:
+                if let orderType = GitHubRepositories.SearchOptions.Order(rawValue: rawValue) {
+                    return .order(type: orderType)
+                }
+            }
+            return nil
+        }
+    }
+    
     // MARK: Use cases
     
     enum SearchRepositories {
@@ -53,6 +91,12 @@ enum GitHubRepositories {
     
     enum SearchRepositoriesMore {
         struct Request {
+        }
+    }
+    
+    enum SearchRepositoriesOptions {
+        struct Request {
+            let option: SearchOptions
         }
     }
 }

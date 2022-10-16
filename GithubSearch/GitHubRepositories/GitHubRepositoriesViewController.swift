@@ -132,3 +132,9 @@ extension GitHubRepositoriesViewController {
         }
     }
 }
+
+extension GitHubRepositoriesViewController: SearchOptionDelegate {
+    func selectOption(_ option: GitHubRepositories.SearchOptions?) {
+        print(option)
+    }
+}
