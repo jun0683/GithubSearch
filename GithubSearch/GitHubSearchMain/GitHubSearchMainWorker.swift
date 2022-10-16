@@ -8,35 +8,26 @@
 
 import UIKit
 
-class GitHubSearchMainWorker {
-    var defaultKeyWords: [String] = [
-        "swift","mvvm","swiftgent","swiftlint","reactorkit","then","snapkit","almofire",
-    ]
+final class GitHubSearchMainWorker {
+    let db: RecentDBProtocol
+    
+    init(db: RecentDBProtocol) {
+        self.db = db
+    }
     
     func getRecentKeyword(filter: String?) -> [String] {
-        guard let filter = filter else {
-            return defaultKeyWords
-        }
-        
-        //TODO: DB get
-        return defaultKeyWords.filter({ $0.localizedCaseInsensitiveContains(filter) })
+        db.getRecentKeyword(filter: filter)
     }
     
     func removeKeyword(_ keyword: String) {
-        if let keywordIndex = defaultKeyWords.firstIndex(of: keyword) {
-            defaultKeyWords.remove(at: keywordIndex)
-        }
+        db.remove(keyword: keyword)
     }
     
     func removeKeywordAll() {
-        defaultKeyWords.removeAll()
+        db.removeKeywordAll()
     }
     
     func insertKeyword(_ keyword: String) {
-        guard defaultKeyWords.contains(where: { $0.localizedCaseInsensitiveContains(keyword)}) == false else {
-            return
-        }
-        
-        defaultKeyWords.insert(keyword, at: 0)
+        db.insert(keyword: keyword)
     }
 }

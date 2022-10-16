@@ -17,7 +17,6 @@
 		CE2FCC4928F848BE00BD9AD1 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC4828F848BE00BD9AD1 /* Network.swift */; };
 		CE2FCC4D28F84CE100BD9AD1 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC4C28F84CE100BD9AD1 /* ImageLoader.swift */; };
 		CE2FCC5228F857C200BD9AD1 /* GithubRepositoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2FCC5128F857C200BD9AD1 /* GithubRepositoriesModel.swift */; };
-		CEE9748428FA9CFF0029AE09 /* SearchKeywordData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748328FA9CFF0029AE09 /* SearchKeywordData.swift */; };
 		CEE9749028FAAA270029AE09 /* GitHubSearchMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748A28FAAA270029AE09 /* GitHubSearchMainPresenter.swift */; };
 		CEE9749128FAAA270029AE09 /* GitHubSearchMainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748B28FAAA270029AE09 /* GitHubSearchMainWorker.swift */; };
 		CEE9749228FAAA270029AE09 /* GitHubSearchMainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748C28FAAA270029AE09 /* GitHubSearchMainRouter.swift */; };
@@ -36,6 +35,8 @@
 		CEE974AF28FADFD70029AE09 /* RepositoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974AE28FADFD70029AE09 /* RepositoriesCell.swift */; };
 		CEE974B128FB93CA0029AE09 /* Scroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B028FB93CA0029AE09 /* Scroll+Extension.swift */; };
 		CEE974B428FBFB8A0029AE09 /* SearchOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B328FBFB8A0029AE09 /* SearchOptionViewController.swift */; };
+		CEE974B728FC29D20029AE09 /* RecentMemoryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */; };
+		CEE974B928FC2C130029AE09 /* RecentUserDefaultDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +71,6 @@
 		CE2FCC4828F848BE00BD9AD1 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE2FCC4C28F84CE100BD9AD1 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		CE2FCC5128F857C200BD9AD1 /* GithubRepositoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubRepositoriesModel.swift; sourceTree = "<group>"; };
-		CEE9748328FA9CFF0029AE09 /* SearchKeywordData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchKeywordData.swift; sourceTree = "<group>"; };
 		CEE9748A28FAAA270029AE09 /* GitHubSearchMainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainPresenter.swift; sourceTree = "<group>"; };
 		CEE9748B28FAAA270029AE09 /* GitHubSearchMainWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainWorker.swift; sourceTree = "<group>"; };
 		CEE9748C28FAAA270029AE09 /* GitHubSearchMainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearchMainRouter.swift; sourceTree = "<group>"; };
@@ -89,6 +89,7 @@
 		CEE974AE28FADFD70029AE09 /* RepositoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesCell.swift; sourceTree = "<group>"; };
 		CEE974B028FB93CA0029AE09 /* Scroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+Extension.swift"; sourceTree = "<group>"; };
 		CEE974B328FBFB8A0029AE09 /* SearchOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionViewController.swift; sourceTree = "<group>"; };
+		CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMemoryDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,13 +140,13 @@
 		CE2FCC1628F846EE00BD9AD1 /* GithubSearch */ = {
 			isa = PBXGroup;
 			children = (
+				CEE974B528FC29C00029AE09 /* DB */,
 				CEE9749D28FABA550029AE09 /* Extension */,
 				CE2FCC5028F857A400BD9AD1 /* CobleModels */,
 				CE2FCC4B28F84B8700BD9AD1 /* ImageLoader */,
 				CE2FCC4728F8473800BD9AD1 /* Network */,
 				CE2FCC1728F846EE00BD9AD1 /* AppDelegate.swift */,
 				CE2FCC1928F846EE00BD9AD1 /* SceneDelegate.swift */,
-				CEE9748328FA9CFF0029AE09 /* SearchKeywordData.swift */,
 				CEE9748928FAAA090029AE09 /* GitHubSearchMain */,
 				CEE974A028FADAE10029AE09 /* GitHubRepositories */,
 				CE2FCC2028F846F200BD9AD1 /* Assets.xcassets */,
@@ -257,6 +258,14 @@
 				CEE974B328FBFB8A0029AE09 /* SearchOptionViewController.swift */,
 			);
 			path = SearchOption;
+			sourceTree = "<group>";
+		};
+		CEE974B528FC29C00029AE09 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,13 +411,13 @@
 				CE2FCC4928F848BE00BD9AD1 /* Network.swift in Sources */,
 				CEE974A928FADAFE0029AE09 /* GitHubRepositoriesRouter.swift in Sources */,
 				CEE9749F28FABA6F0029AE09 /* Array+Extension.swift in Sources */,
+				CEE974B728FC29D20029AE09 /* RecentMemoryDB.swift in Sources */,
 				CEE974B428FBFB8A0029AE09 /* SearchOptionViewController.swift in Sources */,
 				CEE9749928FAAE430029AE09 /* RecentHeaderView.swift in Sources */,
 				CE2FCC5228F857C200BD9AD1 /* GithubRepositoriesModel.swift in Sources */,
 				CE2FCC1A28F846EE00BD9AD1 /* SceneDelegate.swift in Sources */,
 				CEE9749328FAAA270029AE09 /* GitHubSearchMainModels.swift in Sources */,
 				CEE974A728FADAFE0029AE09 /* GitHubRepositoriesPresenter.swift in Sources */,
-				CEE9748428FA9CFF0029AE09 /* SearchKeywordData.swift in Sources */,
 				CEE9749028FAAA270029AE09 /* GitHubSearchMainPresenter.swift in Sources */,
 				CEE9749C28FAB2BF0029AE09 /* KeywordTableCell.swift in Sources */,
 				CEE974A828FADAFE0029AE09 /* GitHubRepositoriesWorker.swift in Sources */,
