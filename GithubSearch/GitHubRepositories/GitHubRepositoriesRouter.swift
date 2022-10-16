@@ -10,7 +10,9 @@
 import UIKit
 
 protocol GitHubRepositoriesRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToSeaerchOption()
+    func routeToSort()
+    func routeToOrder()
 }
 
 protocol GitHubRepositoriesDataPassing {
@@ -23,29 +25,39 @@ class GitHubRepositoriesRouter: NSObject, GitHubRepositoriesRoutingLogic, GitHub
     
     // MARK: Routing
     
-    //func routeToSomewhere(segue: UIStoryboardSegue?) {
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
+    func routeToSeaerchOption() {
+        let menuAlert = UIAlertController(title: "Search options", message: "", preferredStyle: .actionSheet)
+        let sort = UIAlertAction(title: "sort", style: .default, handler: { [weak self] _ in
+            self?.routeToSort()
+        })
+        let order = UIAlertAction(title: "Order", style: .default, handler: { [weak self] _ in
+            self?.routeToOrder()
+        })
+        let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
+        
+        menuAlert.addAction(sort)
+        menuAlert.addAction(order)
+        menuAlert.addAction(cancel)
+        
+        viewController?.present(menuAlert, animated: true, completion: nil)
+    }
     
-    // MARK: Navigation
+    func routeToSort() {
+        let option = searchOptionViewController()
+        
+        viewController?.present(option, animated: true)
+    }
     
-    //func navigateToSomewhere(source: GitHubRepositoriesViewController, destination: SomewhereViewController) {
-    //  source.show(destination, sender: nil)
-    //}
+    func routeToOrder() {
+        let option = searchOptionViewController()
+        
+        viewController?.present(option, animated: true)
+    }
     
-    // MARK: Passing data
-    
-    //func passDataToSomewhere(source: GitHubRepositoriesDataStore, destination: inout SomewhereDataStore) {
-    //  destination.name = source.name
-    //}
+    private func searchOptionViewController() -> UIViewController {
+        let option = SearchOptionViewController()
+        
+        
+        return UINavigationController(rootViewController: option)
+    }
 }
