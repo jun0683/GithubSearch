@@ -18,12 +18,22 @@ class GithubSearchTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func test저장안된키워드로검색후_최근이력에있음() throws {
+        // given
+        let interactor = GitHubSearchMainInteractor(worker: .init(db: RecentMemoryDB()))
+        let presenter = GitHubSearchMainPresenter()
+        let viewControllerMock = GitHubSearchMainViewMock()
+        interactor.presenter = presenter
+        presenter.viewController = viewControllerMock
+
+        interactor.searchRepositories(request: .init(keyword: "test"))
+
+        // when
+        interactor.showRecentKeyWord(request: .init(show: true))
+        
+
+        // then
+        XCTAssertTrue(viewControllerMock.keywords.contains("test"))
     }
 
     func testPerformanceExample() throws {
@@ -33,4 +43,16 @@ class GithubSearchTests: XCTestCase {
         }
     }
 
+}
+
+class GitHubSearchMainViewMock: GitHubSearchMainDisplayLogic {
+    var keywords: [String] = []
+    
+    func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel) {
+        self.keywords = viewModel.keywords
+    }
+    
+    func displaySearchRepositories(viewModel: GitHubSearchMain.SearchRepositories.ViewModel) {
+        
+    }
 }
