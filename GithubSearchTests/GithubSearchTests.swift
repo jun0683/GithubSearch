@@ -53,6 +53,24 @@ class GithubSearchTests: XCTestCase {
         // then
         XCTAssertFalse(viewControllerMock.keywords.contains("test"))
     }
+    
+    func test저장안된키워드로두번검색후_해당이력한개() throws {
+        // given
+        let interactor = GitHubSearchMainInteractor(worker: .init(db: RecentMemoryDB()))
+        let presenter = GitHubSearchMainPresenter()
+        let viewControllerMock = GitHubSearchMainViewMock()
+        interactor.presenter = presenter
+        presenter.viewController = viewControllerMock
+
+        interactor.searchRepositories(request: .init(keyword: "test"))
+        interactor.searchRepositories(request: .init(keyword: "test"))
+
+        // when
+        interactor.showRecentKeyWord(request: .init(show: true))
+        
+
+        // then
+        XCTAssertEqual(viewControllerMock.keywords.count, 1)
     }
 
 }

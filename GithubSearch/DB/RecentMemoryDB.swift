@@ -15,9 +15,7 @@ protocol RecentDBProtocol {
 }
 
 final class RecentMemoryDB: RecentDBProtocol {
-    private var memmoryKeyWords: [String] = [
-        "swift", "mvvm", "swiftgen", "swiftlint", "reactorkit", "then", "snapkit", "almofire"
-    ]
+    private var memmoryKeyWords: [String] = []
     
     func getRecentKeyword(filter: String?) -> [String] {
         guard let filter = filter else {
