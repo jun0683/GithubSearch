@@ -93,16 +93,34 @@ class GithubSearchTests: XCTestCase {
         // then
         XCTAssertEqual(viewControllerMock.keywords.count, 0)
     }
+    
+    func test검색하여_검색화면으로이동() throws {
+        // given
+        let interactor = GitHubSearchMainInteractor(worker: .init(db: RecentMemoryDB()))
+        let presenter = GitHubSearchMainPresenter()
+        let viewControllerMock = GitHubSearchMainViewMock()
+        interactor.presenter = presenter
+        presenter.viewController = viewControllerMock
+
+        interactor.searchRepositories(request: .init(keyword: "test1"))
+
+        // when
+        interactor.removeAllKeyWord(request: .init())
+        
+        // then
+        XCTAssertEqual(viewControllerMock.searchKeywrd, "test1")
+    }
 }
 
 class GitHubSearchMainViewMock: GitHubSearchMainDisplayLogic {
     var keywords: [String] = []
+    var searchKeywrd = ""
     
     func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel) {
         self.keywords = viewModel.keywords
     }
     
     func displaySearchRepositories(viewModel: GitHubSearchMain.SearchRepositories.ViewModel) {
-        
+        searchKeywrd = viewModel.keyword
     }
 }
