@@ -58,8 +58,6 @@ class GitHubSearchMainInteractor: GitHubSearchMainBusinessLogic, GitHubSearchMai
     func searchRepositories(request: GitHubSearchMain.SearchRepositories.Request) {
         worker?.insertKeyword(request.keyword)
         
-        filterKeyword(request: .init(filter: request.keyword))
-        
         presenter?.presentSearchRepositories(response: .init(keyword: request.keyword))
     }
 }
