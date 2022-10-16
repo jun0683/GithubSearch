@@ -90,6 +90,7 @@
 		CEE974B028FB93CA0029AE09 /* Scroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+Extension.swift"; sourceTree = "<group>"; };
 		CEE974B328FBFB8A0029AE09 /* SearchOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchOptionViewController.swift; sourceTree = "<group>"; };
 		CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentMemoryDB.swift; sourceTree = "<group>"; };
+		CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentUserDefaultDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */,
+				CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */,
 			);
 			path = DB;
 			sourceTree = "<group>";
@@ -405,6 +407,7 @@
 				CEE9749128FAAA270029AE09 /* GitHubSearchMainWorker.swift in Sources */,
 				CEE974AA28FADAFE0029AE09 /* GitHubRepositoriesModels.swift in Sources */,
 				CEE974AF28FADFD70029AE09 /* RepositoriesCell.swift in Sources */,
+				CEE974B928FC2C130029AE09 /* RecentUserDefaultDB.swift in Sources */,
 				CEE974AC28FADAFE0029AE09 /* GitHubRepositoriesInteractor.swift in Sources */,
 				CEE9749228FAAA270029AE09 /* GitHubSearchMainRouter.swift in Sources */,
 				CEE974AB28FADAFE0029AE09 /* GitHubRepositoriesViewController.swift in Sources */,
