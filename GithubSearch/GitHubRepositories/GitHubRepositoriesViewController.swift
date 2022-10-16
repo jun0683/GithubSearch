@@ -36,6 +36,10 @@ class GitHubRepositoriesViewController: UITableViewController, GitHubRepositorie
         setup()
     }
     
+    deinit {
+        print("GitHubRepositoriesViewController deinit...")
+    }
+    
     // MARK: Setup
     
     private func setup() {
@@ -123,4 +127,13 @@ extension GitHubRepositoriesViewController {
         return cell
     }
     
+}
+
+extension GitHubRepositoriesViewController {
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.isReachedBottom(withTolerance: scrollView.bounds.height/2) {
+            print(scrollView.bounds.height)
+            interactor?.searchRepositoriesMore(request: .init())
+        }
+    }
 }

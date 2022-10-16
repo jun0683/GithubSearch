@@ -10,9 +10,10 @@ import UIKit
 
 /*
  1.사용자가 입력했던 text 를 통한 repository 검색 결과를 화면3 에서 확인할 수 있습니다.
- 2.버튼과 ellipsis action sheet 에서 검색 옵션을 선택할 수 있습니다.
- 3.화면4 에서 Sort 를 선택하면 화면5, Order 를 선택하면 화면6 이 나타납니다 .
- 4.변경된 옵션을 통해서 갱신 Sort 와 Order 는 GitHub 에서 repository 검색을 위한 API 가 제공하는 옵션
+ 2.리스트는 위 또는 아래로 스크롤이 가능합니다.
+ 3.버튼과 ellipsis action sheet 에서 검색 옵션을 선택할 수 있습니다.
+ 4.화면4 에서 Sort 를 선택하면 화면5, Order 를 선택하면 화면6 이 나타납니다 .
+ 5.변경된 옵션을 통해서 갱신 Sort 와 Order 는 GitHub 에서 repository 검색을 위한 API 가 제공하는 옵션
  */
 
 enum GitHubRepositories {
@@ -47,6 +48,11 @@ enum GitHubRepositories {
         
         struct ViewModel {
             let error: Error
+        }
+    }
+    
+    enum SearchRepositoriesMore {
+        struct Request {
         }
     }
 }

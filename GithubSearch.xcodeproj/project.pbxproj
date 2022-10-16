@@ -34,6 +34,7 @@
 		CEE974AB28FADAFE0029AE09 /* GitHubRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974A528FADAFE0029AE09 /* GitHubRepositoriesViewController.swift */; };
 		CEE974AC28FADAFE0029AE09 /* GitHubRepositoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974A628FADAFE0029AE09 /* GitHubRepositoriesInteractor.swift */; };
 		CEE974AF28FADFD70029AE09 /* RepositoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974AE28FADFD70029AE09 /* RepositoriesCell.swift */; };
+		CEE974B128FB93CA0029AE09 /* Scroll+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B028FB93CA0029AE09 /* Scroll+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		CEE974A528FADAFE0029AE09 /* GitHubRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesViewController.swift; sourceTree = "<group>"; };
 		CEE974A628FADAFE0029AE09 /* GitHubRepositoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubRepositoriesInteractor.swift; sourceTree = "<group>"; };
 		CEE974AE28FADFD70029AE09 /* RepositoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesCell.swift; sourceTree = "<group>"; };
+		CEE974B028FB93CA0029AE09 /* Scroll+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scroll+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				CEE9749E28FABA6F0029AE09 /* Array+Extension.swift */,
+				CEE974B028FB93CA0029AE09 /* Scroll+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE974B128FB93CA0029AE09 /* Scroll+Extension.swift in Sources */,
 				CE2FCC1828F846EE00BD9AD1 /* AppDelegate.swift in Sources */,
 				CEE9749528FAAA270029AE09 /* GitHubSearchMainInteractor.swift in Sources */,
 				CE2FCC4D28F84CE100BD9AD1 /* ImageLoader.swift in Sources */,
