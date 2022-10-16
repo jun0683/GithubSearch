@@ -42,7 +42,7 @@ class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDis
     
     private func setup() {
         let viewController = self
-        let interactor = GitHubSearchMainInteractor()
+        let interactor = GitHubSearchMainInteractor(worker: .init(db: RecentUserDefaultDB()))
         let presenter = GitHubSearchMainPresenter()
         let router = GitHubSearchMainRouter()
         

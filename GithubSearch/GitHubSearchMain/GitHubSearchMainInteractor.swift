@@ -22,7 +22,11 @@ protocol GitHubSearchMainDataStore {
 
 class GitHubSearchMainInteractor: GitHubSearchMainBusinessLogic, GitHubSearchMainDataStore {
     var presenter: GitHubSearchMainPresentationLogic?
-    var worker: GitHubSearchMainWorker? = GitHubSearchMainWorker(db: RecentUserDefaultDB())
+    var worker: GitHubSearchMainWorker?
+    
+    init(worker: GitHubSearchMainWorker?) {
+        self.worker = worker
+    }
     
     // MARK: Do something
     
