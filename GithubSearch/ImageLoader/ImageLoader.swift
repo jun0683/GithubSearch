@@ -10,7 +10,8 @@ import UIKit
 final class ImageLoader {
     static let shared = ImageLoader()
     
-    func setImage(imageUrl: String, imageView: UIImageView) {
+    @discardableResult
+    func setImage(imageUrl: String, imageView: UIImageView) -> URLSessionDataTask? {
         getImage(imageUrl: imageUrl) { result in
             switch result {
             case .success(let image):
@@ -21,13 +22,14 @@ final class ImageLoader {
         }
     }
     
-    private func getImage(imageUrl: String, completion: @escaping ((Result<UIImage, Error>) -> Void)) {
+    @discardableResult
+    private func getImage(imageUrl: String, completion: @escaping ((Result<UIImage, Error>) -> Void)) -> URLSessionDataTask?  {
         if let image = ImageCache.shared.object(forKey: imageUrl as NSString) {
             completion(.success(image))
-            return
+            return nil
         }
         
-        Network.shared.requestData(urlString: imageUrl, completion: { (result) in
+        return Network.shared.requestData(urlString: imageUrl, completion: { (result) in
             switch result {
             case .success(let imageData):
                 guard let image = UIImage(data: imageData) else {
@@ -53,7 +55,8 @@ extension NSError {
 }
 
 extension UIImageView {
-    func setImage(imageUrl: String) {
+    @discardableResult
+    func setImage(imageUrl: String) -> URLSessionDataTask? {
         ImageLoader.shared.setImage(imageUrl: imageUrl, imageView: self)
     }
 }

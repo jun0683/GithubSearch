@@ -81,7 +81,8 @@ class RepositoriesCell: UITableViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
- 
+
+    var imageTask: URLSessionDataTask?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -112,9 +113,15 @@ class RepositoriesCell: UITableViewCell {
         NSLayoutConstraint.activate(viewConstraints)
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        imageTask?.cancel()
+    }
+    
     func confige(item: GitHubRepositories.ItemViewModel) {
         if let ownerIconUrl = item.ownerIconUrl {
-            ownerIcon.setImage(imageUrl: ownerIconUrl)
+            imageTask = ownerIcon.setImage(imageUrl: ownerIconUrl)
         }
         
         ownerNameLabel.text = item.ownerName

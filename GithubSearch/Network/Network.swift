@@ -10,9 +10,11 @@ import Foundation
 final class Network {
     static let shared = Network()
     
-    func requestModel<T: Codable>(urlString: String, completion: @escaping ((Result<T, Error>) -> Void)) {
+    @discardableResult
+    func requestModel<T: Codable>(urlString: String, completion: @escaping ((Result<T, Error>) -> Void)) -> URLSessionDataTask? {
         guard let url = URL(string: urlString) else {
-            return completion(.failure(NSError.Network.networkUrlError))
+            completion(.failure(NSError.Network.networkUrlError))
+            return nil
         }
         
         let dataTask = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
@@ -30,11 +32,15 @@ final class Network {
             }
         }
         dataTask.resume()
+        
+        return dataTask
     }
     
-    func requestData(urlString: String, completion: @escaping ((Result<Data, Error>) -> Void)) {
+    @discardableResult
+    func requestData(urlString: String, completion: @escaping ((Result<Data, Error>) -> Void)) -> URLSessionDataTask? {
         guard let url = URL(string: urlString) else {
-            return completion(.failure(NSError.Network.networkUrlError))
+            completion(.failure(NSError.Network.networkUrlError))
+            return nil
         }
         
         let dataTask = URLSession.shared.dataTask(with: URLRequest(url: url)) { data, response, error in
@@ -49,6 +55,8 @@ final class Network {
             }
         }
         dataTask.resume()
+        
+        return dataTask
     }
 }
 

@@ -127,7 +127,6 @@ extension GitHubRepositoriesViewController {
 extension GitHubRepositoriesViewController {
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.isReachedBottom(withTolerance: scrollView.bounds.height/2) {
-            print(scrollView.bounds.height)
             interactor?.searchRepositoriesMore(request: .init())
         }
     }
