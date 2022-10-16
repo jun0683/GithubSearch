@@ -36,6 +36,12 @@
 		CEE974B728FC29D20029AE09 /* RecentMemoryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */; };
 		CEE974B928FC2C130029AE09 /* RecentUserDefaultDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */; };
 		CEE974BB28FC301F0029AE09 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974BA28FC301F0029AE09 /* ImageCache.swift */; };
+		CEE974BC28FC34220029AE09 /* GitHubSearchMainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748F28FAAA270029AE09 /* GitHubSearchMainInteractor.swift */; };
+		CEE974BD28FC34270029AE09 /* GitHubSearchMainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748D28FAAA270029AE09 /* GitHubSearchMainModels.swift */; };
+		CEE974BE28FC342E0029AE09 /* GitHubSearchMainWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748B28FAAA270029AE09 /* GitHubSearchMainWorker.swift */; };
+		CEE974BF28FC34320029AE09 /* RecentMemoryDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B628FC29D20029AE09 /* RecentMemoryDB.swift */; };
+		CEE974C028FC343E0029AE09 /* GitHubSearchMainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE9748A28FAAA270029AE09 /* GitHubSearchMainPresenter.swift */; };
+		CEE974C128FC352E0029AE09 /* RecentUserDefaultDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE974B828FC2C130029AE09 /* RecentUserDefaultDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -375,7 +381,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE974BD28FC34270029AE09 /* GitHubSearchMainModels.swift in Sources */,
+				CEE974BC28FC34220029AE09 /* GitHubSearchMainInteractor.swift in Sources */,
+				CEE974C028FC343E0029AE09 /* GitHubSearchMainPresenter.swift in Sources */,
+				CEE974C128FC352E0029AE09 /* RecentUserDefaultDB.swift in Sources */,
 				CE2FCC2F28F846F200BD9AD1 /* GithubSearchTests.swift in Sources */,
+				CEE974BF28FC34320029AE09 /* RecentMemoryDB.swift in Sources */,
+				CEE974BE28FC342E0029AE09 /* GitHubSearchMainWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

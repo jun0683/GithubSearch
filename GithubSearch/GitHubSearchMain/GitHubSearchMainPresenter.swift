@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol GitHubSearchMainDisplayLogic: AnyObject {
+    func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel)
+    func displaySearchRepositories(viewModel: GitHubSearchMain.SearchRepositories.ViewModel)
+}
+
 protocol GitHubSearchMainDataSource {
     var keywords: [String] { get }
 }

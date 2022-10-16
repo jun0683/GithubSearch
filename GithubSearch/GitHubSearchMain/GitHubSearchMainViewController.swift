@@ -8,11 +8,6 @@
 
 import UIKit
 
-protocol GitHubSearchMainDisplayLogic: AnyObject {
-    func displayRecentKeyWord(viewModel: GitHubSearchMain.ShowRecentKeyWord.ViewModel)
-    func displaySearchRepositories(viewModel: GitHubSearchMain.SearchRepositories.ViewModel)
-}
-
 class GitHubSearchMainViewController: UITableViewController, GitHubSearchMainDisplayLogic {
     var interactor: GitHubSearchMainBusinessLogic?
     var dataSource: GitHubSearchMainDataSource?
